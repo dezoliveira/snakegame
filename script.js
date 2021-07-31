@@ -78,8 +78,16 @@ function iniciarJogo(){
   if(direction == "up") snakeY -= box
   if(direction == "down") snakeY += box
 
-  /* Funcao pop para retirar ultimo elemento do array (rabo da cobrinha) */
-  snake.pop()
+  /* Função para aumentar ou diminuir a cobrinha */
+  if(snakeX != food.x || snakeY != food.y){
+    /* Retira o ultiom elemento da cobrinha */
+    snake.pop()
+  }
+  else{
+    /* Adiciona a comida no estomago da cobrinha */
+    food.x = Math.floor(Math.random() * 15 + 1) * box,
+    food.y = Math.floor(Math.random() * 15 + 1) * box
+  }
 
   /* Funcao para acrescentar a cabeça da cobrinha */
   let newHead = {
